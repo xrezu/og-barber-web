@@ -100,5 +100,4 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
 ]
 
 // Flat list for backwards compatibility
-export type { Service }
 export const SERVICES: Service[] = SERVICE_CATEGORIES.flatMap(c => c.services)
