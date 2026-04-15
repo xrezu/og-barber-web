@@ -1,9 +1,9 @@
 export const BUSINESS = {
   name: 'OG Barber Studio',
   tagline: 'Tu estilo empieza aquí.',
-  address: 'Calle Madrid 45, 28901 Getafe, Madrid',
-  phone: '+34 600 000 000',
-  whatsappNumber: '34600000000',
+  address: 'Calle Quevedo, 9, 28901 Getafe, Madrid',
+  phone: '+34 655 057 937',
+  whatsappNumber: '34655057937',
   whatsappMessage: 'Hola, quiero pedir cita en OG Barber Studio',
   booksyUrl: 'https://ogbarberstudio67.booksy.com/a',
   googleMapsEmbed: 'https://maps.google.com/maps?q=Calle+Madrid+45+Getafe+Madrid&output=embed',
