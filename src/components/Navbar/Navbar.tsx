@@ -3,7 +3,7 @@ import { List, X, WhatsappLogo } from '@phosphor-icons/react'
 import { useScrolled } from '@/hooks/useScrolled'
 import { useActiveSection } from '@/hooks/useActiveSection'
 import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
-import logoImg from '@media/logo_barber_wo_bg.png'
+const logoImg = '/images/logo_barber_wo_bg.png'
 
 const NAV_LINKS = [
   { href: '#servicios', label: 'Servicios', id: 'servicios' },
@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Logo — original en light, blanco en dark */}
         <a href="#hero" onClick={closeMenu} aria-label={BUSINESS.name} className="shrink-0">
           <img
-            src={logoImg.src}
+            src={logoImg}
             alt={BUSINESS.name}
             className="h-10 md:h-11 w-auto transition-all duration-300 dark:brightness-0 dark:invert"
             draggable={false}

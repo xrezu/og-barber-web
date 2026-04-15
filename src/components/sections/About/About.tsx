@@ -2,9 +2,8 @@ import { Scissors, Trophy, Users, Clock } from '@phosphor-icons/react'
 import { BUSINESS } from '@/constants/config'
 import FadeIn from '@/components/FadeIn'
 
-// Placeholder images — swap later with real barbero photos
-import imgMain    from '@media/corte_clasico.jpeg'
-import imgSecond  from '@media/recepcion.jpeg'
+const imgMain   = '/images/corte_clasico.jpeg'
+const imgSecond = '/images/recepcion.jpeg'
 
 const STATS = [
   { value: '+8',    label: 'Años de\nexperiencia',  Icon: Clock    },
@@ -25,7 +24,7 @@ export default function About() {
         <div className="relative h-[480px] lg:h-auto lg:min-h-[680px]">
           {/* Main photo */}
           <img
-            src={imgMain.src}
+            src={imgMain}
             alt="OG Barber en acción"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
@@ -36,7 +35,7 @@ export default function About() {
           <div className="absolute bottom-8 right-8 w-36 h-44 shadow-2xl hidden sm:block"
             style={{ borderRadius: '2px' }}>
             <img
-              src={imgSecond.src}
+              src={imgSecond}
               alt="Interior OG Barber Studio"
               className="w-full h-full object-cover"
               style={{ borderRadius: '2px' }}

@@ -2,15 +2,15 @@ import { useState } from 'react'
 import { BUSINESS } from '@/constants/config'
 import BeforeAfter from './BeforeAfter'
 
-// Media imports
-import img_recepcion     from '@media/recepcion.jpeg'
-import img_corte_clasico from '@media/corte_clasico.jpeg'
-import img_corte_diseno  from '@media/corte_disenyo.jpeg'
-import img_lavadero      from '@media/lavadero_cabeza.jpeg'
-import img_silla         from '@media/silla.jpeg'
-import img_tenyido       from '@media/tenyido_rojo.jpeg'
-import img_sofa          from '@media/sofaespera.jpeg'
-import img_ninos         from '@media/sillaniños.jpeg'
+// Image paths (served from public/images/)
+const img_recepcion     = '/images/recepcion.jpeg'
+const img_corte_clasico = '/images/corte_clasico.jpeg'
+const img_corte_diseno  = '/images/corte_disenyo.jpeg'
+const img_lavadero      = '/images/lavadero_cabeza.jpeg'
+const img_silla         = '/images/silla.jpeg'
+const img_tenyido       = '/images/tenyido_rojo.jpeg'
+const img_sofa          = '/images/sofaespera.jpeg'
+const img_ninos         = '/images/sillaniños.jpeg'
 
 // ── Types ────────────────────────────────────────────────────────────────
 type Cat = 'todo' | 'clasico' | 'diseno' | 'barba' | 'tratamientos'
@@ -23,14 +23,14 @@ interface Photo {
 
 // ── Data ─────────────────────────────────────────────────────────────────
 const PHOTOS: Photo[] = [
-  { src: img_corte_clasico.src, alt: 'Fade clásico',           cat: 'clasico'      },
-  { src: img_recepcion.src,     alt: 'Recepción del studio',   cat: 'clasico'      },
-  { src: img_corte_diseno.src,  alt: 'Corte con diseño',       cat: 'diseno'       },
-  { src: img_sofa.src,          alt: 'Zona de espera',         cat: 'diseno'       },
-  { src: img_silla.src,         alt: 'Silla de barbero',       cat: 'barba'        },
-  { src: img_ninos.src,         alt: 'Silla infantil',         cat: 'barba'        },
-  { src: img_tenyido.src,       alt: 'Tinte rojo',             cat: 'tratamientos' },
-  { src: img_lavadero.src,      alt: 'Servicio de lavado',     cat: 'tratamientos' },
+  { src: img_corte_clasico, alt: 'Fade clásico',           cat: 'clasico'      },
+  { src: img_recepcion,     alt: 'Recepción del studio',   cat: 'clasico'      },
+  { src: img_corte_diseno,  alt: 'Corte con diseño',       cat: 'diseno'       },
+  { src: img_sofa,          alt: 'Zona de espera',         cat: 'diseno'       },
+  { src: img_silla,         alt: 'Silla de barbero',       cat: 'barba'        },
+  { src: img_ninos,         alt: 'Silla infantil',         cat: 'barba'        },
+  { src: img_tenyido,       alt: 'Tinte rojo',             cat: 'tratamientos' },
+  { src: img_lavadero,      alt: 'Servicio de lavado',     cat: 'tratamientos' },
 ]
 
 const FILTERS: { id: Cat; label: string }[] = [
@@ -43,8 +43,8 @@ const FILTERS: { id: Cat; label: string }[] = [
 
 // ── Transformaciones ─────────────────────────────────────────────────────
 const TRANSFORMATIONS = [
-  { id: 'diseno',  image: img_corte_diseno.src,  label: 'Corte con Diseño' },
-  { id: 'clasico', image: img_corte_clasico.src, label: 'Fade Clásico'     },
+  { id: 'diseno',  image: img_corte_diseno,  label: 'Corte con Diseño' },
+  { id: 'clasico', image: img_corte_clasico, label: 'Fade Clásico'     },
 ]
 
 // ── Component ─────────────────────────────────────────────────────────────

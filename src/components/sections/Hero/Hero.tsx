@@ -1,7 +1,8 @@
 import { WhatsappLogo, ArrowDown, Star, ArrowRight } from '@phosphor-icons/react'
 import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
-import logoImg from '@media/logo_barber_wo_bg.png'
-import heroBg  from '@media/sillafoco.jpeg'
+
+const logoImg = '/images/logo_barber_wo_bg.png'
+const heroBg  = '/images/sillafoco.jpeg'
 
 const delay = (ms: number): React.CSSProperties => ({ animationDelay: `${ms}ms` })
 
@@ -15,13 +16,13 @@ export default function Hero() {
       {/* ── Background ── */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg.src})` }}
+        style={{ backgroundImage: `url(${heroBg})` }}
         aria-hidden="true"
       />
 
       {/* ── Overlay: blanco+blur en light, oscuro en dark ── */}
       <div
-        className="absolute inset-0 bg-white/[0.62] backdrop-blur-sm dark:bg-og-black/[0.72] dark:backdrop-blur-none"
+        className="absolute inset-0 bg-white/[0.38] dark:bg-og-black/[0.72]"
         aria-hidden="true"
       />
 
@@ -34,7 +35,7 @@ export default function Hero() {
         {/* Logo */}
         <div className="hero-item mb-10" style={delay(60)}>
           <img
-            src={logoImg.src}
+            src={logoImg}
             alt={BUSINESS.name}
             className="w-auto max-w-[260px] md:max-w-[360px] dark:brightness-0 dark:invert"
             draggable={false}

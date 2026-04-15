@@ -1,7 +1,7 @@
 import { Scissors, Sparkle } from '@phosphor-icons/react'
 import { SERVICE_CATEGORIES, type Service, type ServiceCategory } from '@/constants/services'
 import { BUSINESS } from '@/constants/config'
-import sofaImg from '@media/sofaespera.jpeg'
+const sofaImg = '/images/sofaespera.jpeg'
 
 // ── Price display ───────────────────────────────────────────────────────
 function PriceTag({ service }: { service: Service }) {
@@ -118,7 +118,7 @@ export default function Services() {
             className="sticky top-0 h-screen overflow-hidden"
           >
             <img
-              src={sofaImg.src}
+              src={sofaImg}
               alt="Interior OG Barber Studio"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />

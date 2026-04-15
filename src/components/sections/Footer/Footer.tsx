@@ -1,6 +1,6 @@
 import { WhatsappLogo, InstagramLogo, TiktokLogo, ArrowRight } from '@phosphor-icons/react'
 import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
-import logoImg from '@media/logo_barber_wo_bg.png'
+const logoImg = '/images/logo_barber_wo_bg.png'
 
 const NAV_LINKS = [
   { href: '#servicios', label: 'Servicios'  },
@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <img
-              src={logoImg.src}
+              src={logoImg}
               alt={BUSINESS.name}
               className="h-10 w-auto brightness-0 invert mb-5 opacity-90"
               draggable={false}
