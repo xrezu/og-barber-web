@@ -1,5 +1,5 @@
-import { MapPin, Clock, WhatsappLogo } from '@phosphor-icons/react'
-import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
+import { MapPin, Clock } from '@phosphor-icons/react'
+import { BUSINESS } from '@/constants/config'
 import FadeIn from '@/components/FadeIn'
 
 export default function Location() {
@@ -45,46 +45,36 @@ export default function Location() {
 
           {/* Schedule */}
           <FadeIn delay={180}>
-            <div className="flex items-start gap-3 mb-10">
+            <div className="flex items-start gap-3">
               <Clock size={16} weight="fill" className="text-gold mt-0.5 shrink-0" />
               <div className="w-full">
                 <p className="font-body text-[11px] font-bold tracking-[0.18em] uppercase text-gold mb-3">
                   Horario
                 </p>
-                <div className="flex flex-col gap-0 border border-white/[0.08]" style={{ borderRadius: '2px' }}>
-                  {BUSINESS.schedule.map(({ days, hours }, i) => {
-                    const closed = hours === 'Cerrado'
-                    return (
-                      <div
-                        key={days}
-                        className={`
-                          flex items-center justify-between px-4 py-3 font-body text-[13px]
-                          ${i < BUSINESS.schedule.length - 1 ? 'border-b border-white/[0.08]' : ''}
-                        `}
-                      >
-                        <span className="text-off-white/60 tracking-[0.04em]">{days}</span>
-                        <span className={closed ? 'text-white/25 line-through' : 'text-off-white font-medium'}>
-                          {hours}
-                        </span>
-                      </div>
-                    )
-                  })}
+                <div className="flex flex-col border border-white/[0.08]" style={{ borderRadius: '2px' }}>
+                  {BUSINESS.schedule.map(({ days, hours, hours2 }, i) => (
+                    <div
+                      key={days}
+                      className={`
+                        flex items-start justify-between px-4 py-3 font-body text-[13px]
+                        ${i < BUSINESS.schedule.length - 1 ? 'border-b border-white/[0.08]' : ''}
+                      `}
+                    >
+                      <span className="text-off-white/60 tracking-[0.04em] shrink-0 mr-4">{days}</span>
+                      <span className="text-off-white font-medium text-right">
+                        {hours}
+                        {hours2 && (
+                          <>
+                            <br />
+                            <span className="text-off-white/70">{hours2}</span>
+                          </>
+                        )}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </FadeIn>
-
-          {/* CTA — solo WhatsApp */}
-          <FadeIn delay={260}>
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline-white"
-            >
-              <WhatsappLogo size={14} weight="fill" />
-              WhatsApp
-            </a>
           </FadeIn>
 
         </div>
@@ -98,7 +88,6 @@ export default function Location() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-          {/* Subtle gold frame */}
           <div className="absolute inset-0 pointer-events-none border border-gold/[0.15]" />
         </div>
       </div>

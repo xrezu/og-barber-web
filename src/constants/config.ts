@@ -10,9 +10,9 @@ export const BUSINESS = {
   tiktokUrl:    'https://www.tiktok.com/@ogbarber_studio_',
   googleMapsEmbed: 'https://maps.google.com/maps?q=Calle+Quevedo+9+Getafe+Madrid&output=embed',
   schedule: [
-    { days: 'Lun – Vie', hours: '10:00 – 20:30' },
-    { days: 'Sábado',    hours: '10:00 – 15:00' },
-    { days: 'Domingo',   hours: 'Cerrado' },
+    { days: 'Lun – Vie', hours: '10:00 – 14:00',  hours2: '16:00 – 20:30' },
+    { days: 'Sábado',    hours: '10:00 – 17:00',  hours2: null             },
+    { days: 'Domingo',   hours: '10:00 – 14:00',  hours2: null             },
   ],
 } as const
 
