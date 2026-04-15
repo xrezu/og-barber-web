@@ -20,7 +20,7 @@ export default function FadeIn({ children, className = '', delay = 0, y = 22 }: 
     if (!el) return
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setShow(true); obs.disconnect() } },
-      { threshold: 0.12 }
+      { threshold: 0.05, rootMargin: '0px 0px -40px 0px' }
     )
     obs.observe(el)
     return () => obs.disconnect()

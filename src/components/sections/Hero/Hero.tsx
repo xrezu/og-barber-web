@@ -38,6 +38,7 @@ export default function Hero() {
             src={logoImg}
             alt={BUSINESS.name}
             className="w-auto max-w-[260px] md:max-w-[360px] dark:brightness-0 dark:invert"
+            fetchPriority="high"
             draggable={false}
           />
         </div>

@@ -55,12 +55,14 @@ const {
     <meta name="theme-color"             content="#0A0A0A" />
     <meta name="msapplication-TileColor" content="#0A0A0A" />
 
-    <!-- ── Fonts preconnect ───────────────────────────────────────────── -->
+    <!-- ── Fonts ─────────────────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" />
 
-    <!-- ── Preload hero image (LCP) ──────────────────────────────────── -->
-    <link rel="preload" as="image" href="/og-image.jpg" />
+    <!-- ── Preload LCP (hero background) ─────────────────────────────── -->
+    <link rel="preload" as="image" href="/images/sillafoco.jpeg" fetchpriority="high" />
 
     <!-- ── JSON-LD Structured Data ───────────────────────────────────── -->
     <script type="application/ld+json">
@@ -127,9 +129,16 @@ const {
             "@type": "OfferCatalog",
             "name": "Servicios OG Barber Studio",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte OG" }, "price": "15", "priceCurrency": "EUR" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte y Barba OG" }, "price": "24", "priceCurrency": "EUR" },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arreglo de Barba OG" }, "price": "13", "priceCurrency": "EUR" }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte OG", "description": "Fade, clásico o moderno. Adaptado a tu estilo." }, "price": "15", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte y Barba OG", "description": "El pack completo. Corte a medida y barba perfecta." }, "price": "24", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arreglo de Barba OG", "description": "Perfilado, arreglo y definición con navaja." }, "price": "13", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte OG Gentleman", "description": "Precio especial para jubilados." }, "price": "10", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afeitado OG", "description": "Afeitado tradicional con navaja." }, "price": "10", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decoloración Completa OG", "description": "Decoloración total con cuidado premium." }, "price": "60", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Decoloración Mechas OG", "description": "Mechas y degradados personalizados." }, "price": "50", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Permanente Rizos OG", "description": "Rizos definidos y duraderos." }, "price": "30", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza Facial OG", "description": "Tratamiento facial profundo y revitalizante." }, "price": "15", "priceCurrency": "EUR" },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Completo OG", "description": "Tratamiento total. La experiencia OG completa." }, "price": "40", "priceCurrency": "EUR" }
             ]
           },
           "aggregateRating": {

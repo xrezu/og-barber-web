@@ -121,6 +121,8 @@ export default function Services() {
               src={sofaImg}
               alt="Interior OG Barber Studio"
               className="absolute inset-0 w-full h-full object-cover object-center"
+              loading="lazy"
+              decoding="async"
             />
             {/* Single clean dark overlay */}
             <div className="absolute inset-0 bg-og-black/55" />

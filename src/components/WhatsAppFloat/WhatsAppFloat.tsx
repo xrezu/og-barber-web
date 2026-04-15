@@ -9,7 +9,7 @@ export default function WhatsAppFloat() {
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
       className="
-        hidden sm:flex
+        flex
         fixed bottom-6 right-6 z-40
         w-12 h-12
         bg-wa text-white

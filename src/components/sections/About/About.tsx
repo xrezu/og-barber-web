@@ -27,6 +27,8 @@ export default function About() {
             src={imgMain}
             alt="OG Barber en acción"
             className="absolute inset-0 w-full h-full object-cover object-center"
+            loading="lazy"
+            decoding="async"
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-og-black/40" />
@@ -38,6 +40,8 @@ export default function About() {
               src={imgSecond}
               alt="Interior OG Barber Studio"
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
               style={{ borderRadius: '2px' }}
             />
             <div className="absolute inset-0 border border-gold/40" style={{ borderRadius: '2px' }} />
