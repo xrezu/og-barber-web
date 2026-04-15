@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <img
-              src={logoImg}
+              src={logoImg.src}
               alt={BUSINESS.name}
               className="h-10 w-auto brightness-0 invert mb-5 opacity-90"
               draggable={false}

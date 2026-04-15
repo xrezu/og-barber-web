@@ -118,7 +118,7 @@ export default function Services() {
             className="sticky top-0 h-screen overflow-hidden"
           >
             <img
-              src={sofaImg}
+              src={sofaImg.src}
               alt="Interior OG Barber Studio"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />

@@ -25,7 +25,7 @@ export default function About() {
         <div className="relative h-[480px] lg:h-auto lg:min-h-[680px]">
           {/* Main photo */}
           <img
-            src={imgMain}
+            src={imgMain.src}
             alt="OG Barber en acción"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
@@ -36,7 +36,7 @@ export default function About() {
           <div className="absolute bottom-8 right-8 w-36 h-44 shadow-2xl hidden sm:block"
             style={{ borderRadius: '2px' }}>
             <img
-              src={imgSecond}
+              src={imgSecond.src}
               alt="Interior OG Barber Studio"
               className="w-full h-full object-cover"
               style={{ borderRadius: '2px' }}

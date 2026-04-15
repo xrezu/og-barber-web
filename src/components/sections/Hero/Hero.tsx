@@ -15,7 +15,7 @@ export default function Hero() {
       {/* ── Background ── */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        style={{ backgroundImage: `url(${heroBg.src})` }}
         aria-hidden="true"
       />
 
@@ -34,7 +34,7 @@ export default function Hero() {
         {/* Logo */}
         <div className="hero-item mb-10" style={delay(60)}>
           <img
-            src={logoImg}
+            src={logoImg.src}
             alt={BUSINESS.name}
             className="w-auto max-w-[260px] md:max-w-[360px] dark:brightness-0 dark:invert"
             draggable={false}

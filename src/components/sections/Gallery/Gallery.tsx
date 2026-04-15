@@ -23,14 +23,14 @@ interface Photo {
 
 // ── Data ─────────────────────────────────────────────────────────────────
 const PHOTOS: Photo[] = [
-  { src: img_corte_clasico, alt: 'Fade clásico',           cat: 'clasico'      },
-  { src: img_recepcion,     alt: 'Recepción del studio',   cat: 'clasico'      },
-  { src: img_corte_diseno,  alt: 'Corte con diseño',       cat: 'diseno'       },
-  { src: img_sofa,          alt: 'Zona de espera',         cat: 'diseno'       },
-  { src: img_silla,         alt: 'Silla de barbero',       cat: 'barba'        },
-  { src: img_ninos,         alt: 'Silla infantil',         cat: 'barba'        },
-  { src: img_tenyido,       alt: 'Tinte rojo',             cat: 'tratamientos' },
-  { src: img_lavadero,      alt: 'Servicio de lavado',     cat: 'tratamientos' },
+  { src: img_corte_clasico.src, alt: 'Fade clásico',           cat: 'clasico'      },
+  { src: img_recepcion.src,     alt: 'Recepción del studio',   cat: 'clasico'      },
+  { src: img_corte_diseno.src,  alt: 'Corte con diseño',       cat: 'diseno'       },
+  { src: img_sofa.src,          alt: 'Zona de espera',         cat: 'diseno'       },
+  { src: img_silla.src,         alt: 'Silla de barbero',       cat: 'barba'        },
+  { src: img_ninos.src,         alt: 'Silla infantil',         cat: 'barba'        },
+  { src: img_tenyido.src,       alt: 'Tinte rojo',             cat: 'tratamientos' },
+  { src: img_lavadero.src,      alt: 'Servicio de lavado',     cat: 'tratamientos' },
 ]
 
 const FILTERS: { id: Cat; label: string }[] = [
@@ -43,8 +43,8 @@ const FILTERS: { id: Cat; label: string }[] = [
 
 // ── Transformaciones ─────────────────────────────────────────────────────
 const TRANSFORMATIONS = [
-  { id: 'diseno',  image: img_corte_diseno,  label: 'Corte con Diseño' },
-  { id: 'clasico', image: img_corte_clasico, label: 'Fade Clásico'     },
+  { id: 'diseno',  image: img_corte_diseno.src,  label: 'Corte con Diseño' },
+  { id: 'clasico', image: img_corte_clasico.src, label: 'Fade Clásico'     },
 ]
 
 // ── Component ─────────────────────────────────────────────────────────────

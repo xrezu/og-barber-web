@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Logo — original en light, blanco en dark */}
         <a href="#hero" onClick={closeMenu} aria-label={BUSINESS.name} className="shrink-0">
           <img
-            src={logoImg}
+            src={logoImg.src}
             alt={BUSINESS.name}
             className="h-10 md:h-11 w-auto transition-all duration-300 dark:brightness-0 dark:invert"
             draggable={false}
