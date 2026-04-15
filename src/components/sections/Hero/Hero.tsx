@@ -20,14 +20,14 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* ── Overlay: blanco+blur en light, oscuro en dark ── */}
+      {/* ── Overlay oscuro en ambos modos ── */}
       <div
-        className="absolute inset-0 bg-white/[0.38] dark:bg-og-black/[0.72]"
+        className="absolute inset-0 bg-og-black/[0.58] dark:bg-og-black/[0.72]"
         aria-hidden="true"
       />
 
       {/* ── Dot pattern ── */}
-      <div className="absolute inset-0 bg-dots-light dark:bg-dots opacity-40" aria-hidden="true" />
+      <div className="absolute inset-0 bg-dots opacity-30" aria-hidden="true" />
 
       {/* ── Content ── */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-xl mx-auto pt-24 pb-28">
@@ -37,7 +37,7 @@ export default function Hero() {
           <img
             src={logoImg}
             alt={BUSINESS.name}
-            className="w-auto max-w-[260px] md:max-w-[360px] dark:brightness-0 dark:invert"
+            className="w-auto max-w-[260px] md:max-w-[360px] brightness-0 invert"
             fetchPriority="high"
             draggable={false}
           />
@@ -57,7 +57,7 @@ export default function Hero() {
 
         {/* Tagline */}
         <p
-          className="hero-item font-display italic font-light text-og-black/80 dark:text-off-white/90 mb-12 leading-snug"
+          className="hero-item font-display italic font-light text-off-white/90 mb-12 leading-snug"
           style={{ ...delay(580), fontSize: 'clamp(22px, 4.5vw, 36px)' }}
         >
           {BUSINESS.tagline}
@@ -78,7 +78,7 @@ export default function Hero() {
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline"
+            className="btn-outline-white"
           >
             <WhatsappLogo size={15} weight="fill" />
             WhatsApp
@@ -96,7 +96,7 @@ export default function Hero() {
             <Star key={i} size={11} weight="fill" className="text-copper" />
           ))}
         </div>
-        <span className="text-og-black/50 dark:text-white/40 text-[11px] tracking-[0.14em] uppercase font-body">
+        <span className="text-white/40 text-[11px] tracking-[0.14em] uppercase font-body">
           +500 clientes
         </span>
       </div>
@@ -107,7 +107,7 @@ export default function Hero() {
         style={delay(1100)}
         aria-hidden="true"
       >
-        <ArrowDown size={14} className="text-og-black/30 dark:text-white/30 animate-bounce-slow" />
+        <ArrowDown size={14} className="text-white/30 animate-bounce-slow" />
       </div>
     </section>
   )
