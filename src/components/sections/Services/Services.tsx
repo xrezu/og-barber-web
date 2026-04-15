@@ -1,4 +1,4 @@
-import { ArrowRight, Scissors, Sparkle } from '@phosphor-icons/react'
+import { Scissors, Sparkle } from '@phosphor-icons/react'
 import { SERVICE_CATEGORIES, type Service, type ServiceCategory } from '@/constants/services'
 import { BUSINESS } from '@/constants/config'
 import sofaImg from '@media/sofaespera.jpeg'
@@ -156,18 +156,6 @@ export default function Services() {
             <CategoryBlock key={cat.id} category={cat} />
           ))}
 
-          {/* CTA */}
-          <div className="mt-12 pt-8 border-t border-light-gray dark:border-white/10">
-            <a
-              href={BUSINESS.booksyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Reservar en Booksy
-              <ArrowRight size={13} weight="bold" />
-            </a>
-          </div>
         </div>
       </div>
     </section>

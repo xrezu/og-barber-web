@@ -1,4 +1,4 @@
-import { ArrowRight, Scissors, Trophy, Users, Clock } from '@phosphor-icons/react'
+import { Scissors, Trophy, Users, Clock } from '@phosphor-icons/react'
 import { BUSINESS } from '@/constants/config'
 import FadeIn from '@/components/FadeIn'
 
@@ -105,25 +105,13 @@ export default function About() {
             </div>
           </FadeIn>
 
-          {/* CTA */}
           <FadeIn delay={300}>
-            <div className="flex flex-col sm:flex-row items-start gap-3">
-              <a
-                href={BUSINESS.booksyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Reservar cita
-                <ArrowRight size={13} weight="bold" />
-              </a>
-              <span className="flex items-center gap-2 self-center">
-                <Scissors size={13} className="text-gold" weight="bold" />
-                <span className="font-body text-[11px] tracking-[0.12em] uppercase text-mid-gray">
-                  Sin espera — reserva online
-                </span>
+            <span className="flex items-center gap-2">
+              <Scissors size={13} className="text-gold" weight="bold" />
+              <span className="font-body text-[11px] tracking-[0.12em] uppercase text-mid-gray">
+                Reserva disponible online
               </span>
-            </div>
+            </span>
           </FadeIn>
 
         </div>

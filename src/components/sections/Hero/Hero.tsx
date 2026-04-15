@@ -1,4 +1,4 @@
-import { WhatsappLogo, ArrowDown, Star } from '@phosphor-icons/react'
+import { WhatsappLogo, ArrowDown, Star, ArrowRight } from '@phosphor-icons/react'
 import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
 import logoImg from '@media/logo_barber_wo_bg.png'
 import heroBg  from '@media/sillafoco.jpeg'
@@ -61,8 +61,17 @@ export default function Hero() {
           {BUSINESS.tagline}
         </p>
 
-        {/* CTA — solo WhatsApp */}
-        <div className="hero-item" style={delay(740)}>
+        {/* CTAs */}
+        <div className="hero-item flex flex-col sm:flex-row items-center gap-3" style={delay(740)}>
+          <a
+            href={BUSINESS.booksyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Reservar cita
+            <ArrowRight size={14} weight="bold" />
+          </a>
           <a
             href={getWhatsAppUrl()}
             target="_blank"
@@ -70,7 +79,7 @@ export default function Hero() {
             className="btn-outline"
           >
             <WhatsappLogo size={15} weight="fill" />
-            Contáctanos por WhatsApp
+            WhatsApp
           </a>
         </div>
       </div>

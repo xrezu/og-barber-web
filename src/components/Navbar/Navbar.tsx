@@ -76,8 +76,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Desktop CTA — solo WhatsApp */}
-        <div className="hidden md:flex items-center">
+        {/* Desktop CTAs */}
+        <div className="hidden md:flex items-center gap-2">
           <a
             href={getWhatsAppUrl()}
             target="_blank"
@@ -87,6 +87,15 @@ export default function Navbar() {
           >
             <WhatsappLogo size={13} weight="fill" />
             WhatsApp
+          </a>
+          <a
+            href={BUSINESS.booksyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center font-body text-[11px] font-semibold tracking-[0.1em] uppercase px-5 py-2.5 bg-gold text-og-black hover:bg-gold-light transition-colors duration-150"
+            style={{ borderRadius: '2px' }}
+          >
+            Reservar
           </a>
         </div>
 

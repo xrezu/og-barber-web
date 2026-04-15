@@ -1,4 +1,4 @@
-import { MapPin, Clock, WhatsappLogo, ArrowRight } from '@phosphor-icons/react'
+import { MapPin, Clock, WhatsappLogo } from '@phosphor-icons/react'
 import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
 import FadeIn from '@/components/FadeIn'
 
@@ -74,28 +74,17 @@ export default function Location() {
             </div>
           </FadeIn>
 
-          {/* CTAs */}
+          {/* CTA — solo WhatsApp */}
           <FadeIn delay={260}>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href={BUSINESS.booksyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Reservar cita
-                <ArrowRight size={13} weight="bold" />
-              </a>
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-white"
-              >
-                <WhatsappLogo size={14} weight="fill" />
-                WhatsApp
-              </a>
-            </div>
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline-white"
+            >
+              <WhatsappLogo size={14} weight="fill" />
+              WhatsApp
+            </a>
           </FadeIn>
 
         </div>

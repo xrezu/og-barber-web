@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ArrowRight } from '@phosphor-icons/react'
 import { BUSINESS } from '@/constants/config'
 import BeforeAfter from './BeforeAfter'
 
@@ -75,15 +74,6 @@ export default function Gallery() {
               <span className="font-display font-light italic text-white/60">Trabajo</span>
             </h2>
           </div>
-          <a
-            href={BUSINESS.booksyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary self-start sm:self-auto shrink-0"
-          >
-            Reservar cita
-            <ArrowRight size={13} weight="bold" />
-          </a>
         </div>
 
         {/* ── Filter bar ── */}
