@@ -5,8 +5,10 @@ export const BUSINESS = {
   phone: '+34 655 057 937',
   whatsappNumber: '34655057937',
   whatsappMessage: 'Hola, quiero pedir cita en OG Barber Studio',
-  booksyUrl: 'https://ogbarberstudio67.booksy.com/a',
-  googleMapsEmbed: 'https://maps.google.com/maps?q=Calle+Madrid+45+Getafe+Madrid&output=embed',
+  booksyUrl:   'https://ogbarberstudio67.booksy.com/a',
+  instagramUrl: 'https://www.instagram.com/ogbarber_studio_/',
+  tiktokUrl:    'https://www.tiktok.com/@ogbarber_studio_',
+  googleMapsEmbed: 'https://maps.google.com/maps?q=Calle+Quevedo+9+Getafe+Madrid&output=embed',
   schedule: [
     { days: 'Lun – Vie', hours: '10:00 – 20:30' },
     { days: 'Sábado',    hours: '10:00 – 15:00' },

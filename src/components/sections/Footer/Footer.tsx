@@ -1,4 +1,4 @@
-import { WhatsappLogo, InstagramLogo, ArrowRight } from '@phosphor-icons/react'
+import { WhatsappLogo, InstagramLogo, TiktokLogo, ArrowRight } from '@phosphor-icons/react'
 import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
 import logoImg from '@media/logo_barber_wo_bg.png'
 
@@ -46,7 +46,7 @@ export default function Footer() {
                 <WhatsappLogo size={15} weight="fill" />
               </a>
               <a
-                href="https://instagram.com"
+                href={BUSINESS.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -54,6 +54,16 @@ export default function Footer() {
                 style={{ borderRadius: '2px' }}
               >
                 <InstagramLogo size={15} weight="fill" />
+              </a>
+              <a
+                href={BUSINESS.tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="w-9 h-9 flex items-center justify-center border border-white/[0.12] text-white/50 hover:text-gold hover:border-gold/40 transition-colors duration-150"
+                style={{ borderRadius: '2px' }}
+              >
+                <TiktokLogo size={15} weight="fill" />
               </a>
             </div>
           </div>
