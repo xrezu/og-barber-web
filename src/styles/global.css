@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Keyframes ───────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lineGrow {
+  from { opacity: 0; transform: scaleX(0); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+/* ── Base ────────────────────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply font-body antialiased overflow-x-hidden;
+    @apply bg-white text-og-black;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body { @apply bg-charcoal text-off-white; }
+  }
+
+  a      { @apply no-underline; }
+  button { @apply font-body cursor-pointer; }
+
+  ::selection { background: rgba(201, 169, 110, 0.25); }
+}
+
+/* ── Component System ────────────────────────────────────────────────── */
+@layer components {
+
+  .section-label {
+    @apply font-body text-[10px] font-semibold tracking-[0.22em] uppercase text-gold;
+  }
+
+  .section-title {
+    @apply font-body font-bold leading-[1.05] text-og-black dark:text-off-white;
+    font-size: clamp(28px, 5.5vw, 48px);
+    letter-spacing: -0.02em;
+  }
+  .section-title em {
+    @apply font-display font-light not-italic;
+    font-style: italic;
+  }
+
+  .section-pad { @apply px-6 py-20 md:px-10 md:py-28 lg:px-16 lg:py-32; }
+
+  /* ── Buttons ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2
+           px-7 py-3.5 text-[12px] font-semibold tracking-[0.1em] uppercase
+           transition-all duration-200 cursor-pointer
+           no-underline whitespace-nowrap;
+    border-radius: 2px;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    @apply btn bg-gold text-og-black border-gold
+           hover:bg-gold-light hover:border-gold-light;
+  }
+
+  .btn-dark {
+    @apply btn bg-og-black text-white border-og-black
+           hover:bg-dark-gray hover:border-dark-gray
+           dark:bg-off-white dark:text-og-black dark:border-off-white
+           dark:hover:bg-cream;
+  }
+
+  .btn-outline {
+    @apply btn
+           bg-transparent text-og-black border-og-black/30
+           hover:border-og-black hover:bg-og-black/5
+           dark:text-off-white dark:border-off-white/25
+           dark:hover:border-off-white dark:hover:bg-white/5;
+  }
+
+  .btn-outline-white {
+    @apply btn
+           bg-transparent text-white border-white/40
+           hover:border-white hover:bg-white/[0.08];
+  }
+
+  .btn-wa {
+    @apply btn bg-wa text-white border-wa hover:bg-wa-dark hover:border-wa-dark;
+  }
+
+  /* Legacy aliases */
+  .btn-gold          { @apply btn-primary; }
+  .btn-outline-dark  { @apply btn-outline; }
+}
+
+/* ── Utilities ───────────────────────────────────────────────────────── */
+@layer utilities {
+  .hero-item {
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .hero-line {
+    opacity: 0;
+    transform-origin: left center;
+    animation: lineGrow 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(circle, rgb(255 255 255 / 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .bg-dots-light {
+    background-image: radial-gradient(circle, rgb(0 0 0 / 0.055) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .copper-rule {
+    @apply block h-px bg-gold w-8;
+  }
+}

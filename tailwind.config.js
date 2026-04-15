@@ -2,8 +2,7 @@
 export default {
   darkMode: 'media',
   content: [
-    './index.html',
-    './src/**/*.{ts,tsx}',
+    './src/**/*.{astro,ts,tsx}',
   ],
   theme: {
     extend: {

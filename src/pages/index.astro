@@ -1,0 +1,31 @@
+---
+import Layout        from '../layouts/Layout.astro'
+import Navbar        from '../components/Navbar/Navbar'
+import Hero          from '../components/sections/Hero/Hero'
+import Services      from '../components/sections/Services/Services'
+import Gallery       from '../components/sections/Gallery/Gallery'
+import About         from '../components/sections/About/About'
+import Location      from '../components/sections/Location/Location'
+import Footer        from '../components/sections/Footer/Footer'
+import WhatsAppFloat from '../components/WhatsAppFloat/WhatsAppFloat'
+---
+
+<Layout>
+  <!--
+    client:load  → hidrata inmediatamente (Navbar, Hero: por encima del fold)
+    client:visible → hidrata cuando entra en pantalla (secciones interactivas)
+    Sin directiva  → render estático puro, cero JS (Footer, WhatsAppFloat)
+  -->
+  <Navbar        client:load    />
+
+  <main>
+    <Hero        client:load    />
+    <Services    client:visible />
+    <Gallery     client:visible />
+    <About       client:visible />
+    <Location    client:visible />
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+</Layout>

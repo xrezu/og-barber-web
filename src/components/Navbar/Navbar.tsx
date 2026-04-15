@@ -13,8 +13,8 @@ const NAV_LINKS = [
 ]
 
 export default function Navbar() {
-  const scrolled       = useScrolled()
-  const activeSection  = useActiveSection()
+  const scrolled      = useScrolled()
+  const activeSection = useActiveSection()
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -22,13 +22,13 @@ export default function Navbar() {
   }, [scrolled])
 
   const closeMenu = () => setMenuOpen(false)
-  const isLight = !scrolled  // over hero (dark bg) → white palette
+  const isLight   = !scrolled   // sobre el hero → necesita colores adaptados
 
   return (
     <header
       className={`
         fixed top-0 left-0 right-0 z-50
-        transition-all duration-400 ease-in-out
+        transition-all duration-300 ease-in-out
         ${scrolled
           ? 'bg-white/[0.97] dark:bg-charcoal/[0.97] backdrop-blur-sm border-b border-light-gray dark:border-white/[0.08]'
           : 'bg-transparent'
@@ -36,20 +36,14 @@ export default function Navbar() {
       `}
     >
       {/* ── Main bar ── */}
-      <div className="flex items-center justify-between px-6 lg:px-14 h-[60px]">
+      <div className="flex items-center justify-between px-6 lg:px-14 h-[64px]">
 
-        {/* Logo */}
+        {/* Logo — original en light, blanco en dark */}
         <a href="#hero" onClick={closeMenu} aria-label={BUSINESS.name} className="shrink-0">
           <img
             src={logoImg}
             alt={BUSINESS.name}
-            className={`
-              h-8 w-auto transition-all duration-300
-              ${isLight
-                ? 'brightness-0 invert'           /* white on dark hero */
-                : 'dark:brightness-0 dark:invert'  /* original in light, white in dark */
-              }
-            `}
+            className="h-10 md:h-11 w-auto transition-all duration-300 dark:brightness-0 dark:invert"
             draggable={false}
           />
         </a>
@@ -68,22 +62,22 @@ export default function Navbar() {
                   ${isActive
                     ? 'text-gold'
                     : isLight
-                      ? 'text-white/70 hover:text-white'
-                      : 'text-mid-gray dark:text-white/60 hover:text-copper'
+                      ? 'text-og-black/60 dark:text-white/70 hover:text-og-black dark:hover:text-white'
+                      : 'text-mid-gray dark:text-white/60 hover:text-gold'
                   }
                 `}
               >
                 {label}
                 {isActive && (
-                  <span className="block h-px bg-gold mt-0.5 transition-all duration-300" />
+                  <span className="block h-px bg-gold mt-0.5" />
                 )}
               </a>
             )
           })}
         </nav>
 
-        {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* Desktop CTA — solo WhatsApp */}
+        <div className="hidden md:flex items-center">
           <a
             href={getWhatsAppUrl()}
             target="_blank"
@@ -94,65 +88,30 @@ export default function Navbar() {
             <WhatsappLogo size={13} weight="fill" />
             WhatsApp
           </a>
-          <a
-            href={BUSINESS.booksyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`
-              inline-flex items-center font-body text-[11px] font-semibold tracking-[0.1em] uppercase px-5 py-2.5
-              transition-all duration-150
-              ${isLight
-                ? 'bg-copper text-white hover:bg-copper-light'
-                : 'bg-og-black text-white hover:bg-dark-gray dark:bg-off-white dark:text-og-black dark:hover:bg-cream'
-              }
-            `}
-            style={{ borderRadius: '2px' }}
-          >
-            Reservar
-          </a>
         </div>
 
-        {/* Mobile: booking + hamburger */}
-        <div className="flex md:hidden items-center gap-2">
-          <a
-            href={BUSINESS.booksyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`
-              font-body text-[11px] font-semibold tracking-[0.08em] uppercase px-3.5 py-2
-              transition-all duration-150
-              ${isLight
-                ? 'bg-copper text-white'
-                : 'bg-og-black text-white dark:bg-off-white dark:text-og-black'
-              }
-            `}
-            style={{ borderRadius: '2px' }}
-          >
-            Reservar
-          </a>
-
-          <button
-            onClick={() => setMenuOpen(o => !o)}
-            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={menuOpen}
-            className={`p-1.5 transition-colors duration-150 ${isLight ? 'text-white' : 'text-og-black dark:text-white'}`}
-          >
-            {menuOpen
-              ? <X size={20} weight="regular" />
-              : <List size={20} weight="regular" />
-            }
-          </button>
-        </div>
+        {/* Mobile: hamburger */}
+        <button
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+          className={`
+            md:hidden p-1.5 transition-colors duration-150
+            ${isLight ? 'text-og-black dark:text-white' : 'text-og-black dark:text-white'}
+          `}
+        >
+          {menuOpen ? <X size={22} weight="regular" /> : <List size={22} weight="regular" />}
+        </button>
       </div>
 
       {/* ── Mobile dropdown ── */}
       <div
         className={`
           md:hidden overflow-hidden transition-all duration-250 ease-in-out
-          ${menuOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}
+          ${menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}
           ${scrolled
             ? 'bg-white/[0.97] dark:bg-charcoal/[0.97] backdrop-blur-sm border-b border-light-gray dark:border-white/[0.08]'
-            : 'bg-og-black/[0.94] backdrop-blur-sm'
+            : 'bg-white/[0.96] dark:bg-og-black/[0.96] backdrop-blur-sm'
           }
         `}
       >
@@ -166,11 +125,11 @@ export default function Navbar() {
                 onClick={closeMenu}
                 className={`
                   py-3.5 font-body text-[13px] font-medium tracking-[0.04em] uppercase
-                  border-b last:border-b-0 transition-colors duration-150
-                  ${isActive ? 'text-gold' : 'hover:text-gold'}
-                  ${scrolled
-                    ? 'border-light-gray dark:border-white/[0.08] ' + (isActive ? '' : 'text-dark-gray dark:text-white/70')
-                    : 'border-white/10 ' + (isActive ? '' : 'text-white/75')
+                  border-b border-light-gray dark:border-white/[0.08] last:border-b-0
+                  transition-colors duration-150
+                  ${isActive
+                    ? 'text-gold'
+                    : 'text-og-black/70 dark:text-white/70 hover:text-gold'
                   }
                 `}
               >
@@ -183,7 +142,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMenu}
-            className="flex items-center gap-2 pt-3.5 font-body text-[13px] font-medium text-wa"
+            className="flex items-center gap-2 pt-4 font-body text-[13px] font-medium text-wa"
           >
             <WhatsappLogo size={14} weight="fill" />
             WhatsApp
