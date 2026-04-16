@@ -22,7 +22,6 @@ export default function Navbar() {
   }, [scrolled])
 
   const closeMenu = () => setMenuOpen(false)
-  const isLight   = !scrolled   // sobre el hero → necesita colores adaptados
 
   return (
     <header
@@ -38,12 +37,14 @@ export default function Navbar() {
       {/* ── Main bar ── */}
       <div className="flex items-center justify-between px-6 lg:px-14 h-[64px]">
 
-        {/* Logo — original en light, blanco en dark */}
+        {/* Logo — blanco sobre hero oscuro, oscuro/original al hacer scroll */}
         <a href="#hero" onClick={closeMenu} aria-label={BUSINESS.name} className="shrink-0">
           <img
             src={logoImg}
             alt={BUSINESS.name}
-            className="h-10 md:h-11 w-auto transition-all duration-300 dark:brightness-0 dark:invert"
+            className={`h-10 md:h-11 w-auto transition-all duration-300 ${
+              !scrolled ? 'brightness-0 invert' : 'dark:brightness-0 dark:invert'
+            }`}
             draggable={false}
           />
         </a>
@@ -61,9 +62,9 @@ export default function Navbar() {
                   transition-colors duration-150
                   ${isActive
                     ? 'text-gold'
-                    : isLight
-                      ? 'text-og-black/60 dark:text-white/70 hover:text-og-black dark:hover:text-white'
-                      : 'text-mid-gray dark:text-white/60 hover:text-gold'
+                    : scrolled
+                      ? 'text-mid-gray dark:text-white/60 hover:text-gold'
+                      : 'text-white/70 hover:text-white'
                   }
                 `}
               >
@@ -84,6 +85,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 font-body text-[11px] font-semibold tracking-[0.1em] uppercase px-4 py-2.5 bg-wa text-white hover:bg-wa-dark transition-colors duration-150"
             style={{ borderRadius: '2px' }}
+            data-cta="whatsapp"
           >
             <WhatsappLogo size={13} weight="fill" />
             WhatsApp
@@ -94,37 +96,46 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex items-center font-body text-[11px] font-semibold tracking-[0.1em] uppercase px-5 py-2.5 bg-gold text-og-black hover:bg-gold-light transition-colors duration-150"
             style={{ borderRadius: '2px' }}
+            data-cta="booksy"
           >
             Reservar
           </a>
         </div>
 
-        {/* Mobile: hamburger */}
-        <button
-          onClick={() => setMenuOpen(o => !o)}
-          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={menuOpen}
-          className={`
-            md:hidden p-1.5 transition-colors duration-150
-            ${isLight ? 'text-og-black dark:text-white' : 'text-og-black dark:text-white'}
-          `}
-        >
-          {menuOpen ? <X size={22} weight="regular" /> : <List size={22} weight="regular" />}
-        </button>
+        {/* Mobile: botón Reservar visible + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <a
+            href={BUSINESS.booksyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center font-body text-[10px] font-bold tracking-[0.1em] uppercase px-3.5 py-2 bg-gold text-og-black hover:bg-gold-light transition-colors duration-150"
+            style={{ borderRadius: '2px' }}
+            data-cta="booksy"
+          >
+            Reservar
+          </a>
+          <button
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuOpen}
+            className={`p-1.5 transition-colors duration-150 ${
+              !scrolled ? 'text-white' : 'text-og-black dark:text-white'
+            }`}
+          >
+            {menuOpen ? <X size={22} weight="regular" /> : <List size={22} weight="regular" />}
+          </button>
+        </div>
       </div>
 
       {/* ── Mobile dropdown ── */}
       <div
         className={`
           md:hidden overflow-hidden transition-all duration-250 ease-in-out
-          ${menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}
-          ${scrolled
-            ? 'bg-white/[0.97] dark:bg-charcoal/[0.97] backdrop-blur-sm border-b border-light-gray dark:border-white/[0.08]'
-            : 'bg-white/[0.96] dark:bg-og-black/[0.96] backdrop-blur-sm'
-          }
+          ${menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+          bg-white/[0.98] dark:bg-charcoal/[0.98] backdrop-blur-sm border-b border-light-gray dark:border-white/[0.08]
         `}
       >
-        <nav className="flex flex-col px-6 pb-5 pt-2" aria-label="Menú móvil">
+        <nav className="flex flex-col px-6 pb-6 pt-2" aria-label="Menú móvil">
           {NAV_LINKS.map(({ href, label, id }) => {
             const isActive = activeSection === id
             return (
@@ -136,26 +147,39 @@ export default function Navbar() {
                   py-3.5 font-body text-[13px] font-medium tracking-[0.04em] uppercase
                   border-b border-light-gray dark:border-white/[0.08] last:border-b-0
                   transition-colors duration-150
-                  ${isActive
-                    ? 'text-gold'
-                    : 'text-og-black/70 dark:text-white/70 hover:text-gold'
-                  }
+                  ${isActive ? 'text-gold' : 'text-og-black/70 dark:text-white/70 hover:text-gold'}
                 `}
               >
                 {label}
               </a>
             )
           })}
-          <a
-            href={getWhatsAppUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={closeMenu}
-            className="flex items-center gap-2 pt-4 font-body text-[13px] font-medium text-wa"
-          >
-            <WhatsappLogo size={14} weight="fill" />
-            WhatsApp
-          </a>
+
+          {/* Mobile dropdown CTAs */}
+          <div className="flex flex-col gap-2 pt-5">
+            <a
+              href={BUSINESS.booksyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+              className="btn-primary justify-center text-[12px]"
+              data-cta="booksy"
+            >
+              Reservar en Booksy
+            </a>
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+              className="flex items-center justify-center gap-2 py-3 font-body text-[12px] font-semibold tracking-[0.08em] uppercase text-wa border border-wa/30 hover:bg-wa/5 transition-colors duration-150"
+              style={{ borderRadius: '2px' }}
+              data-cta="whatsapp"
+            >
+              <WhatsappLogo size={14} weight="fill" />
+              WhatsApp
+            </a>
+          </div>
         </nav>
       </div>
     </header>

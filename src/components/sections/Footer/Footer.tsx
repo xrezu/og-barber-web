@@ -133,6 +133,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary self-start"
+                data-cta="booksy"
               >
                 Reservar en Booksy
                 <ArrowRight size={12} weight="bold" />

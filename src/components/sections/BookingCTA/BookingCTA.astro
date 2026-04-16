@@ -1,0 +1,64 @@
+---
+import { BUSINESS, getWhatsAppUrl } from '@/constants/config'
+
+interface Props {
+  /** Pequeño label encima del headline */
+  eyebrow?: string
+  /** Headline principal */
+  headline?: string
+  /** Sublínea de apoyo */
+  sub?: string
+}
+
+const {
+  eyebrow  = '¿Listo para el cambio?',
+  headline = 'Reserva tu cita en 30 segundos',
+  sub      = 'Sin registro · Confirmación inmediata · Online 24/7',
+} = Astro.props
+---
+
+<div class="bg-og-black border-y border-white/[0.07] py-16 px-6">
+  <div class="max-w-xl mx-auto text-center">
+
+    <p class="section-label mb-4">{eyebrow}</p>
+
+    <h2
+      class="font-body font-bold text-off-white leading-[1.05] mb-3"
+      style="font-size: clamp(22px, 4vw, 36px); letter-spacing: -0.02em;"
+    >
+      {headline}
+    </h2>
+
+    <p class="font-body text-[13px] text-white/40 mb-8 tracking-wide">
+      {sub}
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a
+        href={BUSINESS.booksyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary w-full sm:w-auto justify-center text-[13px] px-8 py-4"
+        data-cta="booksy"
+      >
+        Reservar en Booksy
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+          <path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/>
+        </svg>
+      </a>
+      <a
+        href={getWhatsAppUrl()}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-outline-white w-full sm:w-auto justify-center"
+        data-cta="whatsapp"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+          <path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-40,24a8,8,0,0,0-4.42-7.16l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88A40,40,0,0,0,192,152Z"/>
+        </svg>
+        WhatsApp
+      </a>
+    </div>
+
+  </div>
+</div>

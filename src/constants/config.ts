@@ -1,6 +1,8 @@
 export const BUSINESS = {
   name: 'OG Barber Studio',
   tagline: 'Tu estilo empieza aquí.',
+  heroHeadline: 'Barbería premium en Getafe.',
+  heroSubheadline: 'Reserva tu cita en menos de 30 segundos. Sin llamadas, sin esperas.',
   address: 'Calle Quevedo, 9, 28901 Getafe, Madrid',
   phone: '+34 655 057 937',
   whatsappNumber: '34655057937',

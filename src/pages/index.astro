@@ -3,6 +3,7 @@ import Layout        from '../layouts/Layout.astro'
 import Navbar        from '../components/Navbar/Navbar'
 import Hero          from '../components/sections/Hero/Hero'
 import Services      from '../components/sections/Services/Services'
+import BookingCTA    from '../components/sections/BookingCTA/BookingCTA.astro'
 import Gallery       from '../components/sections/Gallery/Gallery'
 import About         from '../components/sections/About/About'
 import Testimonials  from '../components/sections/Testimonials/Testimonials.astro'
@@ -12,20 +13,32 @@ import WhatsAppFloat from '../components/WhatsAppFloat/WhatsAppFloat'
 ---
 
 <Layout>
-  <!--
-    client:load  → hidrata inmediatamente (Navbar, Hero: por encima del fold)
-    client:visible → hidrata cuando entra en pantalla (secciones interactivas)
-    Sin directiva  → render estático puro, cero JS (Footer, WhatsAppFloat)
-  -->
-  <Navbar        client:load    />
+  <Navbar client:load />
 
   <main>
-    <Hero        client:load    />
-    <Services    client:visible />
-    <Gallery     client:visible />
-    <About       client:visible />
+    <Hero client:load />
+
+    <Services client:visible />
+
+    <!-- CTA tras servicios: usuario acaba de ver precios → momento de conversión -->
+    <BookingCTA
+      eyebrow="¿Te convencemos?"
+      headline="Pide tu cita ahora"
+      sub="Disponibilidad en tiempo real · Confirmación inmediata"
+    />
+
+    <Gallery  client:visible />
+    <About    client:visible />
     <Testimonials />
-    <Location    client:visible />
+
+    <!-- CTA antes del footer: último empujón antes de que salga -->
+    <BookingCTA
+      eyebrow="No lo dejes para después"
+      headline="Tu próximo corte te está esperando"
+      sub="Reserva en 30 segundos · Sin llamadas · Sin esperas"
+    />
+
+    <Location client:visible />
   </main>
 
   <Footer />

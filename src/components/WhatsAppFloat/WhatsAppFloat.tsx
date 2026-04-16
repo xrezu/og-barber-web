@@ -8,6 +8,7 @@ export default function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
+      data-cta="whatsapp"
       className="
         flex
         fixed bottom-6 right-6 z-40
